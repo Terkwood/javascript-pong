@@ -57,18 +57,6 @@ if (!Object.extend) {
   };
 }
 
-/* NOT READY FOR PRIME TIME
-if (!window.requestAnimationFrame) {// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-  window.requestAnimationFrame = window.webkitRequestAnimationFrame || 
-                                 window.mozRequestAnimationFrame    || 
-                                 window.oRequestAnimationFrame      || 
-                                 window.msRequestAnimationFrame     || 
-                                 function(callback, element) {
-                                   window.setTimeout(callback, 1000 / 60);
-                                 }
-}
-*/
-
 //=============================================================================
 // GAME
 //=============================================================================
@@ -201,6 +189,7 @@ Game = {
 
   Runner: {
     initialize: function (id, game, cfg) {
+      // port: game.Defaults is always undef
       this.cfg = Object.extend (game.Defaults || {}, cfg || {}); // use game defaults (if any) and extend with custom cfg (if any)
       this.fps = this.cfg.fps || 60;
       this.interval = 1000.0 / this.fps;
